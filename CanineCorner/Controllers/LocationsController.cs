@@ -9,22 +9,22 @@ using CanineCorner.Models;
 
 namespace CanineCorner.Controllers
 {
-    public class DogInfoController : Controller
+    public class LocationsController : Controller
     {
         private readonly CanineCornerContext _context;
 
-        public DogInfoController(CanineCornerContext context)
+        public LocationsController(CanineCornerContext context)
         {
             _context = context;
         }
 
-        // GET: DogInfo
+        // GET: Locations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.DogInfo.Where(p => p.User == 1).ToListAsync());
+            return View(await _context.Location.ToListAsync());
         }
 
-        // GET: DogInfo/Details/5
+        // GET: Locations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,40 +32,39 @@ namespace CanineCorner.Controllers
                 return NotFound();
             }
 
-            var dogInfo = await _context.DogInfo
+            var location = await _context.Location
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (dogInfo == null)
+            if (location == null)
             {
                 return NotFound();
             }
 
-            return View(dogInfo);
+            return View(location);
         }
 
-        // GET: DogInfo/Create
+        // GET: Locations/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: DogInfo/Create
+        // POST: Locations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,User,DogName,Breed,Weight,Height,DoB,TodayDate")] DogInfo dogInfo)
+        public async Task<IActionResult> Create([Bind("ID,LocName,LocType,ZipCode,Rating")] Location location)
         {
-            dogInfo.User = 1;
             if (ModelState.IsValid)
             {
-                _context.Add(dogInfo);
+                _context.Add(location);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(dogInfo);
+            return View(location);
         }
 
-        // GET: DogInfo/Edit/5
+        // GET: Locations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +72,22 @@ namespace CanineCorner.Controllers
                 return NotFound();
             }
 
-            var dogInfo = await _context.DogInfo.FindAsync(id);
-            if (dogInfo == null)
+            var location = await _context.Location.FindAsync(id);
+            if (location == null)
             {
                 return NotFound();
             }
-            return View(dogInfo);
+            return View(location);
         }
 
-        // POST: DogInfo/Edit/5
+        // POST: Locations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,User,DogName,Breed,Weight,Height,DoB,TodayDate")] DogInfo dogInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,LocName,LocType,ZipCode,Rating")] Location location)
         {
-            if (id != dogInfo.ID)
+            if (id != location.ID)
             {
                 return NotFound();
             }
@@ -97,12 +96,12 @@ namespace CanineCorner.Controllers
             {
                 try
                 {
-                    _context.Update(dogInfo);
+                    _context.Update(location);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DogInfoExists(dogInfo.ID))
+                    if (!LocationExists(location.ID))
                     {
                         return NotFound();
                     }
@@ -113,10 +112,10 @@ namespace CanineCorner.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(dogInfo);
+            return View(location);
         }
 
-        // GET: DogInfo/Delete/5
+        // GET: Locations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +123,30 @@ namespace CanineCorner.Controllers
                 return NotFound();
             }
 
-            var dogInfo = await _context.DogInfo
+            var location = await _context.Location
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (dogInfo == null)
+            if (location == null)
             {
                 return NotFound();
             }
 
-            return View(dogInfo);
+            return View(location);
         }
 
-        // POST: DogInfo/Delete/5
+        // POST: Locations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var dogInfo = await _context.DogInfo.FindAsync(id);
-            _context.DogInfo.Remove(dogInfo);
+            var location = await _context.Location.FindAsync(id);
+            _context.Location.Remove(location);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DogInfoExists(int id)
+        private bool LocationExists(int id)
         {
-            return _context.DogInfo.Any(e => e.ID == id);
+            return _context.Location.Any(e => e.ID == id);
         }
     }
 }

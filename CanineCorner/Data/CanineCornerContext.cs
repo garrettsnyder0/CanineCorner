@@ -17,5 +17,7 @@ namespace CanineCorner.Models
         public DbSet<CanineCorner.Models.DogInfo> DogInfo { get; set; }
 
         public DbSet<CanineCorner.Models.Medical> Medical { get; set; }
+
+        public DbSet<CanineCorner.Models.Location> Location { get; set; }
     }
 }

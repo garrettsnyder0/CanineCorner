@@ -36,9 +36,12 @@ namespace CanineCorner
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<CanineCornerContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("CanineCornerContext")));
-        }
+            // services.AddDbContext<CanineCornerContext>(options =>
+            //         options.UseSqlServer(Configuration.GetConnectionString("CanineCornerContext")));
+            var connection = "Server=tcp:mssa-san-5.database.windows.net,1433;Initial Catalog=CanineCorner;Persist Security Info=False;User ID=garrettsnyder0;Password=GoNavy8413##$$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            services.AddDbContext<CanineCornerContext>(options => options.UseSqlServer(connection));
+
+            }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
