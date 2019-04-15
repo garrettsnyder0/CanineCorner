@@ -19,9 +19,17 @@ namespace CanineCorner.Controllers
         }
 
         // GET: Locations
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SearchString)
         {
-            return View(await _context.Location.ToListAsync());
+            if (String.IsNullOrEmpty(SearchString))
+            {
+                return View(await _context.Location.ToListAsync());
+            }
+            else
+            {
+                int ZipSearch = Int32.Parse(SearchString);
+                return View(await _context.Location.Where(p => p.ZipCode == ZipSearch).ToListAsync());
+            }
         }
 
         // GET: Locations/Details/5
