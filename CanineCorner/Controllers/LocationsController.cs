@@ -19,16 +19,25 @@ namespace CanineCorner.Controllers
         }
 
         // GET: Locations
-        public async Task<IActionResult> Index(string SearchString)
+        public async Task<IActionResult> Index(string SearchString = "", string SearchType = "")
         {
-            if (String.IsNullOrEmpty(SearchString))
+            if (String.IsNullOrEmpty(SearchString) && String.IsNullOrEmpty(SearchType))
             {
                 return View(await _context.Location.ToListAsync());
+            }
+            else if (String.IsNullOrEmpty(SearchType) && !String.IsNullOrEmpty(SearchString))
+            {
+                int ZipSearch = Int32.Parse(SearchString);
+                return View(await _context.Location.Where(p => p.ZipCode == ZipSearch).ToListAsync());
+            }
+            else if (String.IsNullOrEmpty(SearchString) && !String.IsNullOrEmpty(SearchType))
+            {
+                return View(await _context.Location.Where(p => p.LocType == SearchType).ToListAsync());
             }
             else
             {
                 int ZipSearch = Int32.Parse(SearchString);
-                return View(await _context.Location.Where(p => p.ZipCode == ZipSearch).ToListAsync());
+                return View(await _context.Location.Where(p => p.ZipCode == ZipSearch && p.LocType == SearchType).ToListAsync());
             }
         }
 

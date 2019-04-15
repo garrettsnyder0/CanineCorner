@@ -9,6 +9,13 @@
 <form asp-controller="Locations" asp-action="Index" method="get">
     <p>
         Zip Code: <input type="text" name="SearchString">
+
+        Location Type: <select name="SearchType">
+            <option value="">Type of Location</option>
+            <option value="Park">Dog Park</option>
+            <option value="Hotel">Hotel</option>
+            <option value="Restaurant">Restaurant</option>
+        </select>
         <input type="submit" value="Search" />
     </p>
 </form>
