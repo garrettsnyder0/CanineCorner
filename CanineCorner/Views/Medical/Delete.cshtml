@@ -1,0 +1,51 @@
+﻿@model CanineCorner.Models.Medical
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Medical</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DogName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DogName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MedName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MedName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Periodicity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Periodicity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastDateGiven)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastDateGiven)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
