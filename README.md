@@ -15,6 +15,26 @@ Web app to track personal dog information and medication, search for dog friendl
 
 - The "Breed Information" page provides so quick information on different aspects of certain dog breeds to help you find your next best friend
 
+### Requirements
+|:Requirement Number:   | Requirement                       |:Implemented:  |:Tested With Unit Test:|
+|       ---             |     ---                           |     ---       |        ---            |
+|       1.0             | Personal Page                     |               |                       | 
+|       ---             |     ---                           |     ---       |        ---            |
+|       1.1             | Page shows dog info for user      |   Yes         |       No              |
+|       1.2             | User can add new dog              |   Yes         |       No              |
+|       1.3             | User can edit current dog         |   Yes         |       No              |
+|       1.4             | User can remove dog from list     |   Yes         |       No              |
+|       1.5             | Dogs for other users not shown    |   Yes         |       No              |
+|       2.0             | Medical Page                      |               |                       |
+|       ---             |     ---                           |     ---       |        ---            |
+|       2.1             | Page shows medical info for user  |   Yes         |       No              |
+|       2.2             | User can add new medication       |   Yes         |       No              |
+|       2.3             | User can edit current medication  |   Yes         |       No              |
+|       2.4             | User can remove meds from list    |   Yes         |       No              |
+|       2.5             | Meds for other users not shown    |   Yes         |       No              |
+
+
+
 ### Future Plans: 
     - Common deadly food for dogs and actions to take if eaten
     - Allow users to add reviews for dog breeds
