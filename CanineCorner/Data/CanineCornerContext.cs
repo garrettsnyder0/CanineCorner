@@ -31,5 +31,7 @@ namespace CanineCorner.Models
         public DbSet<CanineCorner.Models.Health> Health { get; set; }
 
         public DbSet<CanineCorner.Models.Training> Training { get; set; }
+
+        public DbSet<CanineCorner.Models.Grooming> Grooming { get; set; }
     }
 }

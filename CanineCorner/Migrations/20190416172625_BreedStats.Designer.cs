@@ -4,14 +4,16 @@ using CanineCorner.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CanineCorner.Migrations
 {
     [DbContext(typeof(CanineCornerContext))]
-    partial class CanineCornerContextModelSnapshot : ModelSnapshot
+    [Migration("20190416172625_BreedStats")]
+    partial class BreedStats
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,25 +136,6 @@ namespace CanineCorner.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Friendliness");
-                });
-
-            modelBuilder.Entity("CanineCorner.Models.Grooming", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Drool");
-
-                    b.Property<int>("Easiness");
-
-                    b.Property<int>("Overall");
-
-                    b.Property<int>("Shedding");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Grooming");
                 });
 
             modelBuilder.Entity("CanineCorner.Models.Health", b =>
