@@ -1,0 +1,45 @@
+﻿@model CanineCorner.Models.Friendliness
+<h4>Adaptabillity</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Overall
+            </th>
+            <th>
+                Friendly with Family
+            </th>
+            <th>
+                Good with Kids
+            </th>
+            <th>
+                Friendly Towards Other Dogs
+            </th>
+            <th>
+                Friendly Toward Strangers
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Model.Overall
+            </td>
+            <td>
+                @Model.WithFamily
+            </td>
+            <td>
+                @Model.WithKids
+            </td>
+            <td>
+                @Model.OtherDogs
+            </td>
+            <td>
+                @Model.WithStrangers  
+            </td>
+        </tr>
+
+    </tbody>
+</table>

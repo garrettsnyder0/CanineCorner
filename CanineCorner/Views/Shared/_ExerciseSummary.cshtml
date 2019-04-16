@@ -1,0 +1,46 @@
+﻿@model CanineCorner.Models.Exercise
+
+<h4>Exercise</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Overall
+            </th>
+            <th>
+                Energy Level
+            </th>
+            <th>
+                Intensity of Exercise Needed
+            </th>
+            <th>
+                Amount of Exercise Needed
+            </th>
+            <th>
+                Playfulness
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Model.Overall
+            </td>
+            <td>
+                @Model.EnergyLevel 
+            </td>
+            <td>
+                @Model.Intensity
+            </td>
+            <td>
+                @Model.ExerciseNeed
+            </td>
+            <td>
+                @Model.Playfulness
+            </td>
+        </tr>
+
+    </tbody>
+</table>

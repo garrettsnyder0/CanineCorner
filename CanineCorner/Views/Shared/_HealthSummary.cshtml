@@ -1,0 +1,40 @@
+﻿@model CanineCorner.Models.Health
+
+<h4>Health</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Overall
+            </th>
+            <th>
+                General Health
+            </th>
+            <th>
+                Potential for Weight Gain
+            </th>
+            <th>
+                Size
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Model.Overall
+            </td>
+            <td>
+                @Model.General
+            </td>
+            <td>
+                @Model.WeightGain
+            </td>
+            <td>
+                @Model.Size
+            </td>
+        </tr>
+
+    </tbody>
+</table>

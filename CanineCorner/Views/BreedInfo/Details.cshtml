@@ -1,4 +1,4 @@
-﻿@model CanineCorner.Models.BreedInfo
+﻿@model CanineCorner.Models.FullBreedStats
 
 @{
     ViewData["Title"] = "Details";
@@ -7,54 +7,15 @@
 <h2>Details</h2>
 
 <div>
-    <h4>BreedInfo</h4>
+    <h3>@Model.Breed</h3>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Breed)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Breed)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.adaptability)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.adaptability)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.friendliness)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.friendliness)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.health)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.health)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.grooming)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.grooming)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.training)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.training)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.exercise)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.exercise)
-        </dd>
-    </dl>
+    @Html.Partial("~/Views/Shared/_AdaptibilitySummary.cshtml", Model.Adaptibility)
+    @Html.Partial("~/Views/Shared/_FriendlinessSummary.cshtml", Model.Friendliness)
+    @Html.Partial("~/Views/Shared/_HealthSummary.cshtml", Model.Health)
+    @Html.Partial("~/Views/Shared/_GroomingSummary.cshtml", Model.Grooming)
+    @Html.Partial("~/Views/Shared/_TrainingSummary.cshtml", Model.Training)
+    @Html.Partial("~/Views/Shared/_ExerciseSummary.cshtml", Model.Exercise)
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

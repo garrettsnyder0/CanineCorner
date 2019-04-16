@@ -31,9 +31,19 @@ namespace CanineCorner.Controllers
             {
                 return NotFound();
             }
-
-            var breedInfo = await _context.BreedInfo
+            var breed = await _context.BreedInfo
                 .FirstOrDefaultAsync(m => m.ID == id);
+            FullBreedStats breedInfo = new FullBreedStats();
+            breedInfo.Breed = breed.Breed;
+            breedInfo.Adaptibility = await _context.Adaptibility.FirstOrDefaultAsync(m => m.ID == id);
+            breedInfo.Exercise = await _context.Exercise.FirstOrDefaultAsync(m => m.ID == id);
+            breedInfo.Friendliness = await _context.Friendliness.FirstOrDefaultAsync(m => m.ID == id);
+            breedInfo.Grooming = await _context.Grooming.FirstOrDefaultAsync(m => m.ID == id);
+            breedInfo.Health = await _context.Health.FirstOrDefaultAsync(m => m.ID == id);
+            breedInfo.Training = await _context.Training.FirstOrDefaultAsync(m => m.ID == id);
+
+            //var breedInfo = await _context.BreedInfo
+            //    .FirstOrDefaultAsync(m => m.ID == id);
             if (breedInfo == null)
             {
                 return NotFound();

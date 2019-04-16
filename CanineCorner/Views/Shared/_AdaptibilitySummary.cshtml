@@ -1,0 +1,58 @@
+﻿@model CanineCorner.Models.Adaptibility
+
+<h4>Adaptabillity</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Overall
+            </th>
+            <th>
+                Does Well in Apartment
+            </th>
+            <th>
+                Good for Novice Owners
+            </th>
+            <th>
+                Sensitivity
+            </th>
+            <th>
+                Does Well Alone
+            </th>
+            <th>
+                Does Well in Cold Weather
+            </th>
+            <th>
+                Does Well in Hot Weather
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Model.Overall
+            </td>
+            <td>
+                @Model.Apartment
+            </td>
+            <td>
+                @Model.NoviceOwners
+            </td>
+            <td>
+                @Model.Sensitivity
+            </td>
+            <td>
+                @Model.Alone
+            </td>
+            <td>
+                @Model.ColdWeather
+            </td>
+            <td>
+                @Model.HotWeather
+            </td>
+        </tr>
+
+    </tbody>
+</table>
