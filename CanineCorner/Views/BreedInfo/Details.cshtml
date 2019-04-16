@@ -4,16 +4,42 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="text-align:center"><strong>@Model.Breed</strong></h2>
 
 <div>
-    <h3>@Model.Breed</h3>
+
     <hr />
     @Html.Partial("~/Views/Shared/_AdaptibilitySummary.cshtml", Model.Adaptibility)
+
+    <p>
+        ___________________________________________________________________________________________________________________________________________________
+    </p>
+    <br /><br />
+
     @Html.Partial("~/Views/Shared/_FriendlinessSummary.cshtml", Model.Friendliness)
+
+    <p>
+        ___________________________________________________________________________________________________________________________________________________
+    </p>
+    <br /><br />
     @Html.Partial("~/Views/Shared/_HealthSummary.cshtml", Model.Health)
+
+    <p>
+        ___________________________________________________________________________________________________________________________________________________
+    </p>
+    <br /><br />
     @Html.Partial("~/Views/Shared/_GroomingSummary.cshtml", Model.Grooming)
+
+    <p>
+        ___________________________________________________________________________________________________________________________________________________
+    </p>
+    <br /><br />
     @Html.Partial("~/Views/Shared/_TrainingSummary.cshtml", Model.Training)
+
+    <p>
+        ___________________________________________________________________________________________________________________________________________________
+    </p>
+    <br /><br />
     @Html.Partial("~/Views/Shared/_ExerciseSummary.cshtml", Model.Exercise)
 </div>
 <div>

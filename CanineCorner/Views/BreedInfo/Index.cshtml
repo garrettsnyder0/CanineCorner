@@ -4,37 +4,34 @@
     ViewData["Title"] = "Breed Information";
 }
 
-<h2>Index</h2>
+    <h2>Breed Information</h2>
 
-<p>
-    <a asp-action="Create">Breed Information</a>
-</p>
-<table class="table">
+
+<table class="table" style="text-align: center">
     <thead>
         <tr>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.Breed)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.adaptability)
+            <th style="text-align:center">
+                Adaptability
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.friendliness)
+            <th style="text-align:center">
+                Friendliness
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.health)
+            <th style="text-align:center">
+                Health
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.grooming)
+            <th style="text-align:center">
+                Grooming
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.training)
+            <th style="text-align:center">
+                Training
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.exercise)
+            <th style="text-align:center">
+               Exercise
             </th>
-            <th></th>
-        </tr>
+            
     </thead>
     <tbody>
 @foreach (var item in Model) {
