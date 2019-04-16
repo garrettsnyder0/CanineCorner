@@ -50,7 +50,7 @@ Web app to track personal dog information and medication, search for dog friendl
 
 
 
-### Future Plans 
+### Backlog Items
 - Common deadly food for dogs and actions to take if eaten
 - Allow users to add reviews for dog breeds
 - Allow users to add pictures/personalize their personal pages
