@@ -1,0 +1,64 @@
+﻿@model CanineCorner.Models.BreedInfo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>BreedInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Breed" class="control-label"></label>
+                <input asp-for="Breed" class="form-control" />
+                <span asp-validation-for="Breed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="adaptability" class="control-label"></label>
+                <input asp-for="adaptability" class="form-control" />
+                <span asp-validation-for="adaptability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="friendliness" class="control-label"></label>
+                <input asp-for="friendliness" class="form-control" />
+                <span asp-validation-for="friendliness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="health" class="control-label"></label>
+                <input asp-for="health" class="form-control" />
+                <span asp-validation-for="health" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="grooming" class="control-label"></label>
+                <input asp-for="grooming" class="form-control" />
+                <span asp-validation-for="grooming" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="training" class="control-label"></label>
+                <input asp-for="training" class="form-control" />
+                <span asp-validation-for="training" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="exercise" class="control-label"></label>
+                <input asp-for="exercise" class="form-control" />
+                <span asp-validation-for="exercise" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
