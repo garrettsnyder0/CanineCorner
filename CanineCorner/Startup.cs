@@ -36,10 +36,10 @@ namespace CanineCorner
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            // services.AddDbContext<CanineCornerContext>(options =>
-            //         options.UseSqlServer(Configuration.GetConnectionString("CanineCornerContext")));
-            var connection = "Server=tcp:mssa-san-5.database.windows.net,1433;Initial Catalog=CanineCorner;Persist Security Info=False;User ID=garrettsnyder0;Password=GoNavy8413##$$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            services.AddDbContext<CanineCornerContext>(options => options.UseSqlServer(connection));
+             services.AddDbContext<CanineCornerContext>(options =>
+                     options.UseSqlServer(Configuration.GetConnectionString("CanineCornerContext")));
+            //var connection = "Server=tcp:mssa-san-5.database.windows.net,1433;Initial Catalog=CanineCorner;Persist Security Info=False;User ID=garrettsnyder0;Password=GoNavy8413##$$;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            //services.AddDbContext<CanineCornerContext>(options => options.UseSqlServer(connection));
 
             }
 
@@ -58,6 +58,7 @@ namespace CanineCorner
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>

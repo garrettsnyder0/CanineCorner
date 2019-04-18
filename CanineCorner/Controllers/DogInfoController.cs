@@ -6,22 +6,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CanineCorner.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace CanineCorner.Controllers
 {
     public class DogInfoController : Controller
     {
         private readonly CanineCornerContext _context;
+        private readonly UserManager<CanineCorner.Areas.Identity.Data.CanineCornerUser> _userManager;
+        private string _currentUser { get { return _userManager.GetUserId(User); } }
 
-        public DogInfoController(CanineCornerContext context)
+        public DogInfoController(CanineCornerContext context, UserManager<CanineCorner.Areas.Identity.Data.CanineCornerUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: DogInfo
         public async Task<IActionResult> Index()
         {
-            return View(await _context.DogInfo.Where(p => p.User == 1).ToListAsync());
+            return View(await _context.DogInfo.Where(p => p.User == _currentUser).ToListAsync());
+            //return View(await _context.DogInfo.ToListAsync());
         }
 
         // GET: DogInfo/Details/5
@@ -55,7 +60,7 @@ namespace CanineCorner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,User,DogName,Breed,Weight,Height,DoB,TodayDate")] DogInfo dogInfo)
         {
-            dogInfo.User = 1;
+            dogInfo.User = _currentUser;
             if (ModelState.IsValid)
             {
                 _context.Add(dogInfo);
