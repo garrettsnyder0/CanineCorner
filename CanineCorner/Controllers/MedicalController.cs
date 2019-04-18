@@ -47,9 +47,16 @@ namespace CanineCorner.Controllers
         }
 
         // GET: Medical/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            if (_currentUser == null)
+            {
+                return View("Index", await _context.Medical.Where(p => p.User == _currentUser).ToListAsync());
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Medical/Create

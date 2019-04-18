@@ -48,9 +48,16 @@ namespace CanineCorner.Controllers
         }
 
         // GET: DogInfo/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            if (_currentUser == null)
+            {
+                return View("Index", await _context.DogInfo.Where(p => p.User == _currentUser).ToListAsync());
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: DogInfo/Create
