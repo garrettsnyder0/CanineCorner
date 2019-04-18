@@ -6,22 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CanineCorner.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace CanineCorner.Controllers
 {
     public class MedicalController : Controller
     {
         private readonly CanineCornerContext _context;
+        private readonly UserManager<CanineCorner.Areas.Identity.Data.CanineCornerUser> _userManager;
+        private string _currentUser { get { return _userManager.GetUserId(User); } }
 
-        public MedicalController(CanineCornerContext context)
+        public MedicalController(CanineCornerContext context, UserManager<CanineCorner.Areas.Identity.Data.CanineCornerUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Medical
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Medical.Where(p => p.User == 1).ToListAsync());
+            return View(await _context.Medical.Where(p => p.User == _currentUser).ToListAsync());
         }
 
         // GET: Medical/Details/5
@@ -55,6 +59,7 @@ namespace CanineCorner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,User,DogName,MedName,Periodicity,LastDateGiven")] Medical medical)
         {
+            medical.User = _currentUser;
             if (ModelState.IsValid)
             {
                 _context.Add(medical);

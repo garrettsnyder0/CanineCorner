@@ -10,7 +10,7 @@ namespace CanineCorner.Models
     {
         public int ID { get; set; }
 
-        public int User { get; set; }
+        public string User { get; set; }
 
         public string DogName { get; set; }
 
