@@ -54,7 +54,7 @@ Web app to track personal dog information and medication, search for dog friendl
 |       5.2             | User can log in to their account        |      Yes      |       No              |
 |       5.3             | User can log out of their account       |       Yes      |       No              |
 
-
+Requirement testing log and details [https://github.com/garrettsnyder0/CanineCorner/blob/master/TestPlanAndRequirements.xlsx]
 
 ### Backlog Items
 - Common deadly food for dogs and actions to take if eaten
