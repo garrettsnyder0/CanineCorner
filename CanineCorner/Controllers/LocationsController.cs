@@ -41,6 +41,22 @@ namespace CanineCorner.Controllers
             }
         }
 
+       
+        public ActionResult Order(string category, Location[] locations)
+        {
+            switch (category) {
+                case "Name":
+                    return View("Index", locations.OrderBy(p => p.LocName).ToList());
+                case "Type":
+                    return View("Index", locations.OrderBy(p => p.LocType).ToList());
+                case "Rating":
+                    return View("Index", locations.OrderBy(p => p.Rating).ToList());
+                default:
+                    return View("Index", locations.OrderBy(p => p.ZipCode).ToList());
+            }
+            
+        }
+
         // GET: Locations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
