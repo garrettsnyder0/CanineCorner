@@ -5,6 +5,10 @@
 }
 
 <h2 style="text-align:center"><strong>@Model.Breed</strong></h2>
+@{
+    string url = "https://caninecorner.blob.core.windows.net/dog-pictures/" + Model.Breed + ".jpg";
+}
+<img class="center-image" src="@url" alt="@Model.Breed"/>
 
 <div>
 

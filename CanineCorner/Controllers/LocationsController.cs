@@ -98,7 +98,7 @@ namespace CanineCorner.Controllers
         }
 
         // GET: Locations/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Rate(int? id)
         {
             if (id == null)
             {
@@ -118,7 +118,7 @@ namespace CanineCorner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,LocName,LocType,ZipCode,Rating")] Location location)
+        public async Task<IActionResult> Rate(int id, [Bind("ID,LocName,LocType,ZipCode,Rating")] Location location, int oldRating)
         {
             if (id != location.ID)
             {
@@ -129,6 +129,8 @@ namespace CanineCorner.Controllers
             {
                 try
                 {
+                   // var oldlocation = await _context.Location.FindAsync(id);
+                    location.Rating = (location.Rating + oldRating) / 2;
                     _context.Update(location);
                     await _context.SaveChangesAsync();
                 }

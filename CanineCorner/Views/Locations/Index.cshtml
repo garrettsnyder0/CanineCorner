@@ -53,6 +53,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
+            <td>
+                <a asp-action="Rate" asp-route-id="@item.ID">Rate</a>
+            </td>
         </tr>
 }
     </tbody>
