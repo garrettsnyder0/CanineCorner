@@ -1,3 +1,32 @@
-﻿thead {
+﻿.centerText {
     text-align : center
+}
+
+.bodySpacing {
+    /*
+        use to keep certain elements from pusing
+        to close to the side of the screen
+    */
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.centerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.sizeImage {
+    /*
+        use for sizing breed info pictures
+    */
+    height: 250px;
+    width: 250px;
+}
+
+.tableLable {
+    text-align : center ;
+    font-style : italic;
 }

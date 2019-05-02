@@ -24,11 +24,7 @@
                 <input asp-for="DogName" class="form-control" />
                 <span asp-validation-for="DogName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Breed" class="control-label"></label>
-                <input asp-for="Breed" class="form-control" />
-                <span asp-validation-for="Breed" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Breed" />
             <div class="form-group">
                 <label asp-for="Weight" class="control-label"></label>
                 <input asp-for="Weight" class="form-control" />
@@ -39,16 +35,8 @@
                 <input asp-for="Height" class="form-control" />
                 <span asp-validation-for="Height" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DoB" class="control-label"></label>
-                <input asp-for="DoB" class="form-control" />
-                <span asp-validation-for="DoB" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TodayDate" class="control-label"></label>
-                <input asp-for="TodayDate" class="form-control" />
-                <span asp-validation-for="TodayDate" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="DoB" />
+            <input type="hidden" asp-for="TodayDate" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

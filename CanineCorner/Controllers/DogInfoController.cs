@@ -68,6 +68,7 @@ namespace CanineCorner.Controllers
         public async Task<IActionResult> Create([Bind("ID,User,DogName,Breed,Weight,Height,DoB,TodayDate")] DogInfo dogInfo)
         {
             dogInfo.User = _currentUser;
+            dogInfo.TodayDate = System.DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(dogInfo);
@@ -100,6 +101,7 @@ namespace CanineCorner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,User,DogName,Breed,Weight,Height,DoB,TodayDate")] DogInfo dogInfo)
         {
+            dogInfo.TodayDate = System.DateTime.Now;
             if (id != dogInfo.ID)
             {
                 return NotFound();

@@ -4,14 +4,30 @@
     ViewData["Title"] = "Breed Information";
 }
 
-    <h2>Breed Information</h2>
+<h2>Breed Information</h2>
 
+<form asp-controller="BreedInfo" asp-action="Details" method="get">
+    <p>
+        Breed: <select name="id">
+            <option value=null>Select Breed</option>
+            <option value=1>German Shepherd</option>
+            <option value=2>Siberian Husky</option>
+            <option value=3>Border Collie</option>
+            <option value=4>Great Pyrenees</option>
+            <option value=5>Golden Retriever</option>
+            <option value=6>Labrador Retriever</option>
+            <option value=7>Chihuahua</option>
+            <option value=8>French Bulldog</option>
+        </select>
+        <input type="submit" value="Search" />
+    </p>
+</form>
 
 <table class="table" style="text-align: center">
     <thead>
         <tr>
             <th style="text-align:center">
-                
+
             </th>
             <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.Breed)
@@ -35,40 +51,42 @@
                 Exercise
             </th>
 
-</thead>
+    </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>@{ 
-                string url = "https://caninecorner.blob.core.windows.net/dog-pictures/" + item.Breed + ".jpg";
-            }
-                <img class="center-image" src="@url" alt="@item.Breed"  height="200" width="200" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Breed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.adaptability)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.friendliness)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.health)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.grooming)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.training)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.exercise)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        string url = "https://caninecorner.blob.core.windows.net/dog-pictures/" + item.Breed + ".jpg";
+                    }
+                    <img class="center-image" src="@url" alt="@item.Breed" height="200" width="200" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Breed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adaptability)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.friendliness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.health)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grooming)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.training)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.exercise)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -21,7 +21,10 @@ namespace CanineCorner.Controllers
         // GET: BreedInfo
         public async Task<IActionResult> Index()
         {
+
+
             return View(await _context.BreedInfo.ToListAsync());
+
         }
 
         // GET: BreedInfo/Details/5
@@ -31,8 +34,7 @@ namespace CanineCorner.Controllers
             {
                 return NotFound();
             }
-            var breed = await _context.BreedInfo
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var breed = await _context.BreedInfo.FirstOrDefaultAsync(m => m.ID == id);
             FullBreedStats breedInfo = new FullBreedStats();
             breedInfo.Breed = breed.Breed;
             breedInfo.Adaptibility = await _context.Adaptibility.FirstOrDefaultAsync(m => m.ID == id);
