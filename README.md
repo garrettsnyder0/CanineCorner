@@ -39,12 +39,12 @@ Web app to track personal dog information and medication, search for dog friendl
 |       3.2             | User can search by zipcode              |  Yes          |      No               |
 |       3.3             | User can filter by type                 |  Yes          |      No               |
 |       3.4             | User can order by heading               |  No           |      No               |
-|       3.5             | User can rate locations                 |  No           |      No               |
-|       3.6             | Location shows average ratings          |  No           |      No               |
+|       3.5             | User can rate locations                 |  Yes          |      No               |
+|       3.6             | Location shows average ratings          |  Yes          |      No               |
 |       ---             |     ---                                 |     ---       |        ---            |
 |       4.0             | Breed Information                       |     ---       |        ---            |
 |       4.1             | User can view all breed information     |       Yes     |       No              |
-|       4.2             | Picture of breed shown                  |       No      |       No              |
+|       4.2             | Picture of breed shown                  |      Yes      |       No              |
 |       4.3             | User can view additional details        |      Yes      |       No              |
 |       4.4             | User can search for specific breed      |       No      |       No              |
 |       4.5             | User can filter by breed stats          |       No      |       No              |
@@ -52,7 +52,7 @@ Web app to track personal dog information and medication, search for dog friendl
 |       5.0             | Users                                   |     ---       |        ---            |
 |       5.1             | User can create an account              |       Yes     |       No              |
 |       5.2             | User can log in to their account        |      Yes      |       No              |
-|       5.3             | User can log out of their account       |       Yes      |       No              |
+|       5.3             | User can log out of their account       |       Yes     |       No              |
 
 Requirement testing log and details [https://github.com/garrettsnyder0/CanineCorner/blob/master/TestPlanAndRequirements.xlsx]
 
