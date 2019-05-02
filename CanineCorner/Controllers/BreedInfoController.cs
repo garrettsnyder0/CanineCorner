@@ -27,6 +27,63 @@ namespace CanineCorner.Controllers
 
         }
 
+        public async Task<IActionResult> Filter(int adaptibility, int exercise, int friendliness, int grooming, int health, int training)
+        {
+            if (adaptibility == 0 && exercise == 0 && friendliness == 0 && grooming == 0 && health == 0 && training == 0)
+            {
+                return View("Index", await _context.BreedInfo.ToListAsync());
+            }
+            
+            var query = from BreedInfo in _context.BreedInfo select BreedInfo;
+            if(adaptibility != 0)
+            {
+                query = query.Where(p => p.adaptability == adaptibility);
+            }
+            if (exercise != 0)
+            {
+                //if(searchString.Length != 0)
+                //{
+                //    searchString += "&&";
+                //}
+                query = query.Where(p => p.exercise == exercise);
+            }
+            if (friendliness != 0)
+            {
+                //if (searchString.Length != 0)
+                //{
+                //    searchString += "&&";
+                //}
+                query = query.Where(p => p.friendliness == friendliness);
+            }
+            if (grooming != 0)
+            {
+                //if (searchString.Length != 0)
+                //{
+                //    searchString += "&&";
+                //}
+                query = query.Where(p => p.grooming == grooming);
+            }
+            if (health != 0)
+            {
+                //if (searchString.Length != 0)
+                //{
+                //    searchString += "&&";
+                //}
+                query = query.Where(p => p.health == health);
+            }
+            if (training != 0)
+            {
+                //if (searchString.Length != 0)
+                //{
+                //    searchString += "&&";
+                //}
+                query = query.Where(p => p.training == training); 
+            }
+
+            return View("Index", await query.ToListAsync());
+
+        }
+
         // GET: BreedInfo/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -12,10 +12,13 @@ namespace CanineCorner.Models
 
         public string User { get; set; }
 
+        [Required(ErrorMessage = "Please enter your dog's name")]
         public string DogName { get; set; }
 
+        [Required(ErrorMessage = "Please enter the medication's name")]
         public string MedName { get; set; }
 
+        [Required(ErrorMessage = "Please enter how often the medication is needed")]
         public string Periodicity { get; set; }
 
         [DataType(DataType.Date)]
