@@ -43,8 +43,13 @@
                 <input asp-for="DoB" class="form-control" />
                 <span asp-validation-for="DoB" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="TodayDate" />
-            
+            <div class="form-group">
+                <label asp-for="TodayDate" class="control-label"></label>
+                <input asp-for="TodayDate" class="form-control" />
+                <span asp-validation-for="TodayDate" class="text-danger"></span>
+            </div>
+            <!--input type="hidden" asp-for="TodayDate" /-->
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
