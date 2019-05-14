@@ -15,6 +15,8 @@ Web app to track personal dog information and medication, search for dog friendl
 
 - The "Breed Information" page provides so quick information on different aspects of certain dog breeds to help you find your next best friend
 
+- For User Stories, starting wireframes, entity relation and model diagrams: view presentation at https://github.com/garrettsnyder0/CanineCorner/blob/master/CanineCornerPresentation.pptx
+
 ### Requirements
 |Requirement Number     | Requirement                             | Implemented   | Tested With Unit Test |
 |       :---:           |     ---                                 |     :---:     |        :---:          |
